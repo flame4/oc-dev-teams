@@ -9,6 +9,7 @@ fi
 OPENCLAW_HOME="${OPENCLAW_HOME:-$(pwd)}"
 OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE:-${OPENCLAW_HOME}/workspace}"
 OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40380}"
+OPENCLAW_GATEWAY_MODE="${OPENCLAW_GATEWAY_MODE:-local}"
 ZAI_BASE_URL="${ZAI_BASE_URL:-https://api.z.ai/api/paas/v4}"
 CONFIG_PATH_RAW="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw/openclaw.json}"
 
@@ -86,6 +87,7 @@ cat > "${CONFIG_PATH}" <<EOF
     }
   },
   "gateway": {
+    "mode": "${OPENCLAW_GATEWAY_MODE}",
     "port": ${OPENCLAW_GATEWAY_PORT},
     "bind": "loopback"
   },
