@@ -103,7 +103,8 @@ cat > "${CONFIG_PATH}" <<EOF
       "channels": {
         "${SLACK_CHANNEL}": {
           "allow": true,
-          "requireMention": true
+          "requireMention": true,
+          "allowBots": true
         }
       },
       "dm": {
