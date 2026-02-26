@@ -11,15 +11,16 @@ Your primary coding tool. Invoked via command line.
 ### Environment Variables
 
 ```bash
-ANTHROPIC_API_KEY    # API key (set in .env, points to GLM-4.7 compatible endpoint)
+ANTHROPIC_API_KEY    # API key (set in .env, points to GLM via compatible endpoint)
 ANTHROPIC_BASE_URL   # API base URL (set in .env)
+ANTHROPIC_MODEL      # Model to use (set in .env, e.g. glm-4.6v)
 ```
 
 ### Usage Pattern
 
 ```bash
 # For implementing a feature:
-claude --model claude-sonnet-4-20250514 \
+claude --model "${ANTHROPIC_MODEL}" \
   -p "$(cat <<'PROMPT'
 You are working on a Next.js (App Router) + Supabase + TypeScript project.
 
@@ -37,7 +38,7 @@ PROMPT
 )"
 
 # For fixing a test failure:
-claude --model claude-sonnet-4-20250514 \
+claude --model "${ANTHROPIC_MODEL}" \
   -p "$(cat <<'PROMPT'
 ## Bug Report
 {Tester's failure report}
