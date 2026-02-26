@@ -10,7 +10,7 @@ OPENCLAW_HOME="${OPENCLAW_HOME:-$(pwd)}"
 OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE:-${OPENCLAW_HOME}/workspace}"
 OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40380}"
 ZAI_BASE_URL="${ZAI_BASE_URL:-https://api.z.ai/api/paas/v4}"
-CONFIG_PATH="${OPENCLAW_CONFIG_PATH:-.openclaw/openclaw.json}"
+CONFIG_PATH="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw}"
 
 required_vars=(
   PM_MODEL_PRIMARY
@@ -30,8 +30,9 @@ done
 
 mkdir -p "$(dirname "${CONFIG_PATH}")"
 mkdir -p "${OPENCLAW_WORKSPACE}"
+mkdir -p "${CONFIG_PATH}"
 
-cat > "${CONFIG_PATH}" <<EOF
+cat > "${CONFIG_PATH}/openclaw.json" <<EOF
 {
   "models": {
     "mode": "merge",
@@ -89,6 +90,7 @@ cat > "${CONFIG_PATH}" <<EOF
       "appToken": "${SLACK_APP_TOKEN}",
       "botToken": "${SLACK_BOT_TOKEN}",
       "groupPolicy": "allowlist",
+      "historyLimit": 5,
       "channels": {
         "#ai-dev-team": {
           "allow": true,

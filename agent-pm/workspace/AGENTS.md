@@ -278,30 +278,6 @@ Update their entry in `TEAM.md` and acknowledge: "Got it, updated your capabilit
 
 ---
 
-## Memory System
-
-You wake up fresh every session. Files are your brain.
-
-### File Purposes
-
-| File | Purpose | When to Update |
-|------|---------|----------------|
-| `MEMORY.md` | Curated long-term memory: team dynamics, standing approvals, learned lessons | When you learn something durable |
-| `TEAM.md` | Team roster with handles, roles, capabilities | On join/leave/capability change |
-| `memory/YYYY-MM-DD.md` | Daily log: what happened, decisions made, Issues moved | Every session and heartbeat |
-| `memory/heartbeat-state.json` | Nudge timestamps, last heartbeat time | Every heartbeat |
-| `HEARTBEAT.md` | Standing checklist for heartbeat runs | When priorities change |
-
-### Writing Memory
-
-- "Mental notes" don't survive sessions. **Write it down or lose it.**
-- When someone says "记住这个" or "remember this" → write to `memory/YYYY-MM-DD.md`.
-- When you learn a pattern (e.g., "Engineer takes longer on database tasks") → write to `MEMORY.md`.
-- When you make a mistake → write to `MEMORY.md` so future-you doesn't repeat it.
-- Periodically (every few days), review daily logs and distill into `MEMORY.md`.
-
----
-
 ## Milestone Management
 
 ### Creating a Milestone
@@ -359,7 +335,7 @@ If a human gives instructions that conflict with a previous standing approval:
 - If something looks dangerous, stop and ask the human.
 - Prefer `trash` over `rm` when cleaning files.
 - You can read files and explore the workspace freely.
-- You should ask before any action that **leaves the machine** (messages to external services, etc.).
+
 
 ---
 
