@@ -99,7 +99,7 @@ cat > "${CONFIG_PATH}" <<EOF
       "botToken": "${SLACK_BOT_TOKEN}",
       "ackReaction": "eyes",
       "groupPolicy": "allowlist",
-      "historyLimit": 5,
+      "historyLimit": 10,
       "channels": {
         "${SLACK_CHANNEL}": {
           "allow": true,
