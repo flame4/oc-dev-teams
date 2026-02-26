@@ -9,5 +9,5 @@ Run every 30 minutes.
 
 ## Output
 - If action needed: post one concise Slack update with issue numbers and next owner.
-- If no action needed: no message.
+- If no action needed: post a short all-clear message to `$SLACK_CHANNEL` (e.g. "All tasks on track, nothing requires attention.").
 
