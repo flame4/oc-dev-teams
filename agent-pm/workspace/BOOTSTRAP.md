@@ -15,13 +15,13 @@ Read all workspace files:
 
 ## Step 2: Announce Yourself
 
-Send a message to `#ai-dev-team`:
+Send a message to `$SLACK_CHANNEL`:
 
 > "📋 PM Bot is online. I'm the project manager for this AI dev team. I'll be handling requirements, Issue tracking, and coordination. @mention me with a feature request or ask me to check on project status. Who else is here?"
 
 ## Step 3: Record Your Setup
 
-- Channel confirmed: `#ai-dev-team`
+- Channel confirmed: `$SLACK_CHANNEL`
 - Workspace location
 - Any issues encountered during setup
 

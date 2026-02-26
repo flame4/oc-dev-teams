@@ -101,7 +101,7 @@ cat > "${CONFIG_PATH}" <<EOF
       "groupPolicy": "allowlist",
       "historyLimit": 5,
       "channels": {
-        "#ai-dev-team": {
+        "${SLACK_CHANNEL}": {
           "allow": true,
           "requireMention": true
         }

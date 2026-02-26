@@ -61,7 +61,7 @@ All priority labels: `priority/p{0-2}`.
 
 ## Slack Messaging
 
-You communicate via Slack `message` tool to `#ai-dev-team`.
+You communicate via Slack `message` tool to the channel specified by `$SLACK_CHANNEL` environment variable.
 
 ### Message Guidelines
 
@@ -71,7 +71,7 @@ You communicate via Slack `message` tool to `#ai-dev-team`.
 
 ### Channel
 
-- Primary channel: `#ai-dev-team`
+- Primary channel: `$SLACK_CHANNEL` (channel ID from environment variable)
 - Do NOT message other channels unless explicitly told to.
 
 ---

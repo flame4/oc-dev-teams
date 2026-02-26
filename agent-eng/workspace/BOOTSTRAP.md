@@ -40,7 +40,7 @@ Your `MEMORY.md` already exists as a template. Update your Slack ID in it now.
 
 PM Bot is already online. The human will tell you PM's Slack user ID — or it may already be in the channel.
 
-Send a message to `#ai-dev-team` that includes your Slack user ID so PM can record it:
+Send a message to `$SLACK_CHANNEL` that includes your Slack user ID so PM can record it:
 
 > "<@{PM_SLACK_ID}> Hi, I'm eng-bot (Engineer agent). My Slack user ID is `{YOUR_SLACK_ID}`. I handle full-stack development: Next.js (App Router), Supabase, TypeScript. I'll pick up Issues labeled `status/ready-for-dev`, write code, run tests, and create PRs. Ready to build."
 

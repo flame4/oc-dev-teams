@@ -145,7 +145,7 @@ pnpm dev
 
 ## Slack Messaging
 
-Communicate via Slack `message` tool to `#ai-dev-team`.
+Communicate via Slack `message` tool to the channel specified by `$SLACK_CHANNEL` environment variable.
 
 ### Guidelines
 
@@ -155,7 +155,7 @@ Communicate via Slack `message` tool to `#ai-dev-team`.
 
 ### Channel
 
-- Primary channel: `#ai-dev-team`
+- Primary channel: `$SLACK_CHANNEL` (channel ID from environment variable)
 
 ---
 

@@ -16,7 +16,7 @@
 1. **4 个独立 OpenClaw 进程**（port 18789-18792），不使用 OpenClaw 内置的 multi-agent routing / sessions_send / Lobster 工作流引擎
 2. **完全模拟人类协作**：Agent 之间只通过 Slack 消息和 GitHub Issue 交流，不通过内存通信
 3. **GitHub Issue Label 做状态机**（确定性编排），Slack @mention 做即时通知（辅助）
-4. **4 个独立 Slack App/Bot** 加入同一个 `#ai-dev-team` channel，`requireMention: true`
+4. **4 个独立 Slack App/Bot** 加入同一个 channel（由 `$SLACK_CHANNEL` 环境变量指定），`requireMention: true`
 5. **Heartbeat 定时轮询 + Slack @mention 即时触发**并存的双保险机制
 6. **Engineer 使用 Codex CLI (OpenAI API) 做实际编码**，OpenClaw (GLM-5) 做需求理解和调度
 7. **每个 agent 独立 clone 一份项目 repo**，避免 git 操作冲突
@@ -163,7 +163,7 @@ Label 驱动的状态流转：
 
 通用配置：
 - `channels.slack.historyLimit: 10`
-- `channels.slack.channels.#ai-dev-team.requireMention: true`
+- `channels.slack.channels.$SLACK_CHANNEL.requireMention: true`
 - `messages.queue.mode: "collect"`
 - Heartbeat 用便宜模型降低成本
 
