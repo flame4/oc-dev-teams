@@ -97,6 +97,7 @@ cat > "${CONFIG_PATH}" <<EOF
       "mode": "socket",
       "appToken": "${SLACK_APP_TOKEN}",
       "botToken": "${SLACK_BOT_TOKEN}",
+      "ackReaction": "eyes",
       "groupPolicy": "allowlist",
       "historyLimit": 5,
       "channels": {
