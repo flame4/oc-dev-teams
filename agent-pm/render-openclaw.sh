@@ -10,7 +10,14 @@ OPENCLAW_HOME="${OPENCLAW_HOME:-$(pwd)}"
 OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE:-${OPENCLAW_HOME}/workspace}"
 OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40380}"
 ZAI_BASE_URL="${ZAI_BASE_URL:-https://api.z.ai/api/paas/v4}"
-CONFIG_PATH="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw}"
+CONFIG_PATH_RAW="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw/openclaw.json}"
+
+if [[ "${CONFIG_PATH_RAW}" == *.json ]]; then
+  CONFIG_PATH="${CONFIG_PATH_RAW}"
+else
+  echo "WARN: OPENCLAW_CONFIG_PATH should point to a file path; treating '${CONFIG_PATH_RAW}' as a directory." >&2
+  CONFIG_PATH="${CONFIG_PATH_RAW%/}/openclaw.json"
+fi
 
 required_vars=(
   PM_MODEL_PRIMARY
@@ -30,9 +37,8 @@ done
 
 mkdir -p "$(dirname "${CONFIG_PATH}")"
 mkdir -p "${OPENCLAW_WORKSPACE}"
-mkdir -p "${CONFIG_PATH}"
 
-cat > "${CONFIG_PATH}/openclaw.json" <<EOF
+cat > "${CONFIG_PATH}" <<EOF
 {
   "models": {
     "mode": "merge",
@@ -81,7 +87,7 @@ cat > "${CONFIG_PATH}/openclaw.json" <<EOF
   },
   "gateway": {
     "port": ${OPENCLAW_GATEWAY_PORT},
-    "bind": "127.0.0.1"
+    "bind": "loopback"
   },
   "channels": {
     "slack": {

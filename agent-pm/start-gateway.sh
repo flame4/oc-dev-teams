@@ -18,17 +18,6 @@ OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40380}"
 mkdir -p "${OPENCLAW_STATE_DIR}"
 mkdir -p "${OPENCLAW_WORKSPACE}"
 
-if [[ -x "${OPENCLAW_HOME}/render-openclaw.sh" ]]; then
-  (
-    cd "${OPENCLAW_HOME}"
-    OPENCLAW_CONFIG_PATH="${OPENCLAW_CONFIG_PATH}" OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE}" OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT}" ./render-openclaw.sh
-  )
-elif [[ ! -f "${OPENCLAW_CONFIG_PATH}" ]]; then
-  echo "Missing config: ${OPENCLAW_CONFIG_PATH}" >&2
-  echo "Expected render script at: ${OPENCLAW_HOME}/render-openclaw.sh" >&2
-  exit 1
-fi
-
 echo "Starting OpenClaw gateway"
 echo "OPENCLAW_HOME=${OPENCLAW_HOME}"
 echo "OPENCLAW_STATE_DIR=${OPENCLAW_STATE_DIR}"
