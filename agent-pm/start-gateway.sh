@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OPENCLAW_HOME="${OPENCLAW_HOME:-$(pwd)}"
+
+if [[ -f "${OPENCLAW_HOME}/.env" ]]; then
+  set -a
+  # shellcheck disable=SC1090
+  source "${OPENCLAW_HOME}/.env"
+  set +a
+fi
+
+OPENCLAW_STATE_DIR="${OPENCLAW_STATE_DIR:-${OPENCLAW_HOME}/.openclaw}"
+OPENCLAW_CONFIG_PATH="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_STATE_DIR}/openclaw.json}"
+OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE:-${OPENCLAW_HOME}/workspace}"
+OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40380}"
+
+mkdir -p "${OPENCLAW_STATE_DIR}"
+mkdir -p "${OPENCLAW_WORKSPACE}"
+
+if [[ -x "${OPENCLAW_HOME}/render-openclaw.sh" ]]; then
+  (
+    cd "${OPENCLAW_HOME}"
+    OPENCLAW_CONFIG_PATH="${OPENCLAW_CONFIG_PATH}" OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE}" OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT}" ./render-openclaw.sh
+  )
+elif [[ ! -f "${OPENCLAW_CONFIG_PATH}" ]]; then
+  echo "Missing config: ${OPENCLAW_CONFIG_PATH}" >&2
+  echo "Expected render script at: ${OPENCLAW_HOME}/render-openclaw.sh" >&2
+  exit 1
+fi
+
+echo "Starting OpenClaw gateway"
+echo "OPENCLAW_HOME=${OPENCLAW_HOME}"
+echo "OPENCLAW_STATE_DIR=${OPENCLAW_STATE_DIR}"
+echo "OPENCLAW_CONFIG_PATH=${OPENCLAW_CONFIG_PATH}"
+echo "OPENCLAW_WORKSPACE=${OPENCLAW_WORKSPACE}"
+echo "PORT=${OPENCLAW_GATEWAY_PORT}"
+
+exec env \
+  OPENCLAW_HOME="${OPENCLAW_HOME}" \
+  OPENCLAW_STATE_DIR="${OPENCLAW_STATE_DIR}" \
+  OPENCLAW_CONFIG_PATH="${OPENCLAW_CONFIG_PATH}" \
+  OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE}" \
+  openclaw gateway --port "${OPENCLAW_GATEWAY_PORT}"
