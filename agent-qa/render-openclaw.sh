@@ -12,7 +12,7 @@ OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40382}"
 OPENCLAW_GATEWAY_MODE="${OPENCLAW_GATEWAY_MODE:-local}"
 ZAI_BASE_URL="${ZAI_BASE_URL:-https://api.z.ai/api/paas/v4}"
 MOONSHOT_BASE_URL="${MOONSHOT_BASE_URL:-https://api.moonshot.cn/v1}"
-MINIMAX_BASE_URL="${MINIMAX_BASE_URL:-https://api.minimaxi.com/anthropic}"
+MINIMAX_CN_BASE_URL="${MINIMAX_CN_BASE_URL:-https://api.minimaxi.com/anthropic}"
 CONFIG_PATH_RAW="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw/openclaw.json}"
 
 if [[ "${CONFIG_PATH_RAW}" == *.json ]]; then
@@ -101,9 +101,9 @@ cat > "${CONFIG_PATH}" <<EOF
           }
         ]
       },
-      "minimax": {
-        "baseUrl": "${MINIMAX_BASE_URL}",
-        "apiKey": "\${MINIMAX_API_KEY}",
+      "minimax-cn": {
+        "baseUrl": "${MINIMAX_CN_BASE_URL}",
+        "apiKey": "${MINIMAX_CN_API_KEY}",
         "api": "anthropic-messages",
         "models": [
           {
@@ -128,8 +128,8 @@ cat > "${CONFIG_PATH}" <<EOF
         "provider": "moonshot",
         "mode": "api_key"
       },
-      "minimax:default": {
-        "provider": "minimax",
+      "minimax-cn:default": {
+        "provider": "minimax-cn",
         "mode": "api_key"
       }
     }
