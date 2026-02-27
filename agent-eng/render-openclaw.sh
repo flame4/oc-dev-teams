@@ -182,12 +182,10 @@ cat > "${CONFIG_PATH}" <<EOF
       "streaming": "partial"
     }
   },
-  "routing": {
+  "messages": {
     "groupChat": {
       "mentionPatterns": ["大家都说说最近都干了啥"]
-    }
-  },
-  "messages": {
+    },
     "queue": {
       "mode": "collect",
       "debounceMs": 1000,
