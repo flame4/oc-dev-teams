@@ -12,7 +12,7 @@ OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40381}"
 OPENCLAW_GATEWAY_MODE="${OPENCLAW_GATEWAY_MODE:-local}"
 ZAI_BASE_URL="${ZAI_BASE_URL:-https://api.z.ai/api/paas/v4}"
 MOONSHOT_BASE_URL="${MOONSHOT_BASE_URL:-https://api.moonshot.cn/v1}"
-MINIMAX_BASE_URL="${MINIMAX_BASE_URL:-https://api.minimax.io/anthropic}"
+MINIMAX_BASE_URL="${MINIMAX_BASE_URL:-https://api.minimax.com/anthropic}"
 CONFIG_PATH_RAW="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw/openclaw.json}"
 
 if [[ "${CONFIG_PATH_RAW}" == *.json ]]; then
