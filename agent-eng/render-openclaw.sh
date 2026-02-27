@@ -72,7 +72,6 @@ cat > "${CONFIG_PATH}" <<EOF
       },
       "moonshot": {
         "baseUrl": "${MOONSHOT_BASE_URL}",
-        "apiKey": "\${MOONSHOT_API_KEY}",
         "api": "openai-completions",
         "models": [
           {
@@ -103,13 +102,20 @@ cat > "${CONFIG_PATH}" <<EOF
       },
       "minimax": {
         "baseUrl": "${MINIMAX_BASE_URL}",
-        "apiKey": "\${MINIMAX_API_KEY}",
         "api": "anthropic-messages",
         "models": [
           {
             "id": "MiniMax-M2.1",
             "name": "MiniMax M2.1",
-            "reasoning": false,
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5-highspeed",
+            "name": "MiniMax M2.5 Highspeed",
+            "reasoning": true,
             "input": ["text"],
             "contextWindow": 200000,
             "maxTokens": 8192
