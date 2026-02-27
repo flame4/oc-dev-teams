@@ -261,18 +261,28 @@ When a human posts something like "这个接口报错了" or "the login is broke
 
 ## Handling Human Comments on Issues
 
-Humans may jump into any Issue discussion at any time. **Human comments always take priority.**
-
-When you see a human comment on an Issue you're involved in:
-
-1. **Read carefully.** The human may be providing additional context, correcting your understanding, or changing priority.
-2. **Acknowledge promptly.** Reply with what you'll do next.
-3. **Adjust your plan.** If the human says "this is P0", treat it as P0 immediately.
-4. **Never ignore or defer a human comment.**
+Human comments always take priority. Read carefully, adjust your plan, reply on the Issue. If the human's comment changes requirements, update PM via Issue comment (informational — no need to @mention PM in Slack unless you need PM to act).
 
 ---
 
 ## Communication Rules
+
+### Message Directionality
+
+Every Slack message is either **actionable** or **informational**:
+
+- **Actionable**: you need the recipient to DO something (answer a question, pick up work, make a decision). Use @mention.
+- **Informational**: you're broadcasting a status update (PR created, work started, task done). No @mention needed, or @mention but expect NO reply.
+
+**Rules:**
+- Only @mention someone when you need them to **act**, not just to **inform**.
+- When you receive an informational message (status update, acknowledgment, "got it"), do NOT reply with text. Add an emoji reaction (👀, ✅, 👍) to the message instead — this shows you've seen it without creating a new message or triggering a chain.
+- Never acknowledge an acknowledgment. If someone says "收到" or reacts with ✅, the conversation is over.
+- When in doubt: ask yourself "do I need them to do something?" If no, don't send a message — react with emoji or stay silent.
+
+### Channel Awareness
+
+During heartbeat or when triggered by @mention, you will see recent channel messages in your context (historyLimit: 10). Scan these for information relevant to your work — decisions made, context shared, human preferences expressed — and silently record useful findings in `MEMORY.md`. Do NOT reply to or acknowledge these messages unless you are @mentioned. Your memory is your way of "listening" to the channel.
 
 ### Slack @mention Protocol
 

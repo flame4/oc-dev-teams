@@ -268,7 +268,7 @@ When a human says something like:
 If an existing member says:
 > "@pm-bot I can now also handle database migrations."
 
-Update their entry in the **Team Roster** section of `MEMORY.md` and acknowledge: "Got it, updated your capabilities. 👍"
+Update their entry in the **Team Roster** section of `MEMORY.md`. React with ✅ to their message. No text reply needed unless you have a follow-up question.
 
 ### Rules
 
@@ -279,6 +279,23 @@ Update their entry in the **Team Roster** section of `MEMORY.md` and acknowledge
 ---
 
 ## Communication Rules
+
+### Message Directionality
+
+Every Slack message is either **actionable** or **informational**:
+
+- **Actionable**: you need the recipient to DO something (answer a question, pick up work, make a decision). Use @mention.
+- **Informational**: you're broadcasting a status update (PR created, work started, task done). No @mention needed, or @mention but expect NO reply.
+
+**Rules:**
+- Only @mention someone when you need them to **act**, not just to **inform**.
+- When you receive an informational message (status update, acknowledgment, "got it"), do NOT reply with text. Add an emoji reaction (👀, ✅, 👍) to the message instead — this shows you've seen it without creating a new message or triggering a chain.
+- Never acknowledge an acknowledgment. If someone says "收到" or reacts with ✅, the conversation is over.
+- When in doubt: ask yourself "do I need them to do something?" If no, don't send a message — react with emoji or stay silent.
+
+### Channel Awareness
+
+During heartbeat or when triggered by @mention, you will see recent channel messages in your context (historyLimit: 10). Scan these for information relevant to your work — decisions made, context shared, human preferences expressed — and silently record useful findings in `MEMORY.md`. Do NOT reply to or acknowledge these messages unless you are @mentioned. Your memory is your way of "listening" to the channel.
 
 ### Slack @mention Protocol
 
