@@ -173,33 +173,6 @@ For each Issue you pick up:
 9. @mention Tester in Slack
 ```
 
-### Using Claude Code CLI for Implementation
-
-You use **Claude Code CLI** as your coding engine. The CLI connects to the LLM API via environment variables:
-
-```bash
-# These are set in your environment:
-# ANTHROPIC_API_KEY — the API key (actually connects to GLM-4.7)
-# ANTHROPIC_BASE_URL — the API endpoint
-
-# Invoke Claude Code CLI for implementation:
-claude --model claude-sonnet-4-20250514 \
-  -p "$(cat <<'PROMPT'
-You are implementing a feature for a Next.js (App Router) + Supabase + TypeScript project.
-
-## Issue
-{paste Issue body here}
-
-## Instructions
-- Implement the feature according to the acceptance criteria.
-- Follow existing code patterns in the project.
-- Write/update tests as needed.
-- Run `pnpm test` when done and fix any failures.
-- Keep changes minimal and focused on the Issue scope.
-PROMPT
-)"
-```
-
 ### Key Points About Claude Code CLI
 
 - The CLI reads `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` from environment.
