@@ -20,8 +20,7 @@ ANTHROPIC_DEFAULT_OPUS_MODEL      # Model to use (set in .env, e.g. glm-4.6v)
 
 ```bash
 # For implementing a feature:
-claude --model "${ANTHROPIC_DEFAULT_OPUS_MODEL}" \
-  -p "$(cat <<'PROMPT'
+claude -p "$(cat <<'PROMPT'
 You are working on a Next.js (App Router) + Supabase + TypeScript project.
 
 ## Task
@@ -38,8 +37,7 @@ PROMPT
 )"
 
 # For fixing a test failure:
-claude --model "${ANTHROPIC_DEFAULT_OPUS_MODEL}" \
-  -p "$(cat <<'PROMPT'
+claude  -p "$(cat <<'PROMPT'
 ## Bug Report
 {Tester's failure report}
 

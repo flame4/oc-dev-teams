@@ -11,6 +11,8 @@ OPENCLAW_WORKSPACE="${OPENCLAW_WORKSPACE:-${OPENCLAW_HOME}/workspace}"
 OPENCLAW_GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-40381}"
 OPENCLAW_GATEWAY_MODE="${OPENCLAW_GATEWAY_MODE:-local}"
 ZAI_BASE_URL="${ZAI_BASE_URL:-https://api.z.ai/api/paas/v4}"
+MOONSHOT_BASE_URL="${MOONSHOT_BASE_URL:-https://api.moonshot.cn/v1}"
+MINIMAX_BASE_URL="${MINIMAX_BASE_URL:-https://api.minimax.io/anthropic}"
 CONFIG_PATH_RAW="${OPENCLAW_CONFIG_PATH:-${OPENCLAW_HOME}/.openclaw/openclaw.json}"
 
 if [[ "${CONFIG_PATH_RAW}" == *.json ]]; then
@@ -49,6 +51,12 @@ cat > "${CONFIG_PATH}" <<EOF
         "api": "openai-completions",
         "models": [
           {
+            "id": "glm-5",
+            "name": "GLM-5",
+            "reasoning": true,
+            "input": ["text"]
+          },
+          {
             "id": "glm-4.7",
             "name": "GLM-4.7",
             "reasoning": true,
@@ -61,6 +69,52 @@ cat > "${CONFIG_PATH}" <<EOF
             "input": ["text"]
           }
         ]
+      },
+      "moonshot": {
+        "baseUrl": "${MOONSHOT_BASE_URL}",
+        "apiKey": "\${MOONSHOT_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5",
+            "reasoning": false,
+            "input": ["text"],
+            "contextWindow": 256000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "kimi-k2-thinking",
+            "name": "Kimi K2 Thinking",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 256000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "kimi-k2-thinking-turbo",
+            "name": "Kimi K2 Thinking Turbo",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 256000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "minimax": {
+        "baseUrl": "${MINIMAX_BASE_URL}",
+        "apiKey": "\${MINIMAX_API_KEY}",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.1",
+            "name": "MiniMax M2.1",
+            "reasoning": false,
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
       }
     }
   },
@@ -68,6 +122,14 @@ cat > "${CONFIG_PATH}" <<EOF
     "profiles": {
       "zai:default": {
         "provider": "zai",
+        "mode": "api_key"
+      },
+      "moonshot:default": {
+        "provider": "moonshot",
+        "mode": "api_key"
+      },
+      "minimax:default": {
+        "provider": "minimax",
         "mode": "api_key"
       }
     }
