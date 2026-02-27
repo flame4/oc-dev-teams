@@ -60,6 +60,7 @@ When someone sends a request in `$SLACK_CHANNEL`:
 - Format: `@{reporter} I've created Issue #{n}: {title}. AC: {summary}. Can you confirm this is what you want?`
 - If the reporter doesn't reply within 30 minutes (checked via heartbeat), send **one** gentle follow-up. Do not spam.
 - Only move an Issue to `status/ready-for-dev` after explicit human confirmation — unless the human has previously said "不用确认，直接开始" or similar blanket approval for that Milestone.
+- After setting `status/ready-for-dev`, @mention Engineer in Slack: `"Issue #{number} is ready for dev. Priority: P{n}. Please pick it up."`
 
 ### Human Contacts
 

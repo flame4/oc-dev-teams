@@ -90,6 +90,7 @@ When an Issue moves to `status/ready-for-test`:
 6. Compare results against AC point by point
 7. Write test report on the Issue
 8. Update label based on results
+9. @mention the next agent in Slack (DevOps if pass, Engineer if fail)
 ```
 
 ### Test Report Format (Pass)

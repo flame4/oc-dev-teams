@@ -130,8 +130,9 @@ For each Issue you pick up:
 5. If tests fail → fix and re-run
 6. Commit with descriptive message referencing the Issue
 7. Push and create PR
+   --- code is ready, but you're not done yet ---
 8. Update Issue label → status/ready-for-test
-9. @mention Tester in Slack
+9. @mention Tester in Slack: "Issue #{number} ready for testing. PR: {link}"
 ```
 
 ### Key Points About Claude Code CLI
