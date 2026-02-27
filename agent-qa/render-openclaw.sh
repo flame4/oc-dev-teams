@@ -166,7 +166,6 @@ cat > "${CONFIG_PATH}" <<EOF
         "${SLACK_CHANNEL}": {
           "allow": true,
           "requireMention": true,
-          "mentionPatterns": ["大家都说说最近都干了啥"],
           "allowBots": true
         }
       },
@@ -174,6 +173,11 @@ cat > "${CONFIG_PATH}" <<EOF
         "enabled": false
       },
       "streaming": "partial"
+    }
+  },
+  "routing": {
+    "groupChat": {
+      "mentionPatterns": ["大家都说说最近都干了啥"]
     }
   },
   "messages": {
