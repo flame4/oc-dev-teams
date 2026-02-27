@@ -152,6 +152,9 @@ cat > "${CONFIG_PATH}" <<EOF
         "every": "${ENG_HEARTBEAT_EVERY}",
         "model": "${ENG_HEARTBEAT_MODEL}"
       },
+      "groupChat": {
+        "mentionPatterns": ["大家都说说最近都干了啥"]
+      },
       "maxConcurrent": 2
     }
   },
